@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
 
-      {/* Header */}
+    
       <header className="bg-gray-900 border-b border-gray-800 px-8 py-5">
         <h1 className="text-3xl font-bold tracking-wide text-white">🎮 Cakes Clips</h1>
         <p className="text-gray-400 text-sm mt-1">A collection of my best game moments</p>
@@ -58,10 +58,8 @@ function App() {
           <p className="text-gray-400 text-center mt-20 text-lg">Loading clips...</p>
         )}
 
-        {/* Game sections */}
         {GAMES.filter((game) => grouped[game]).map((game) => (
           <section key={game}>
-            {/* Section header */}
             <div className="flex items-center gap-4 mb-5">
               <h2 className="text-xl font-bold text-white">{game}</h2>
               <span className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded-full">
@@ -70,8 +68,7 @@ function App() {
               <div className="flex-1 h-px bg-gray-800" />
             </div>
 
-            {/* Video grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {grouped[game].map((video) => (
                 <div
                   key={video.id}
@@ -96,7 +93,6 @@ function App() {
           </section>
         ))}
 
-        {/* Other section if any unmatched clips */}
         {grouped["Other"] && (
           <section>
             <div className="flex items-center gap-4 mb-5">
@@ -106,7 +102,7 @@ function App() {
               </span>
               <div className="flex-1 h-px bg-gray-800" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {grouped["Other"].map((video) => (
                 <div
                   key={video.id}
@@ -130,7 +126,6 @@ function App() {
         )}
       </main>
 
-      {/* Modal */}
       {selectedVideo && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-4"
@@ -146,7 +141,7 @@ function App() {
                 onClick={() => setSelectedVideo(null)}
                 className="text-gray-400 hover:text-white text-xl transition-colors"
               >
-                ✕
+                x
               </button>
             </div>
             <iframe
